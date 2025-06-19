@@ -4,6 +4,7 @@ const cors = require("cors")
 ;
 require("dotenv").config();
 const PORT = process.env.PORT || 5001;
+const MONGO = process.env.MONGO
 const mongoose = require("mongoose");
 const actorRoutes = require("./routes/actor");
 
