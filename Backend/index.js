@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
 const cors = require("cors")
-const PORT = 5001;
+;
+require("dotenv").config();
+const PORT = process.env.PORT || 5001;
 const mongoose = require("mongoose");
 const actorRoutes = require("./routes/actor");
 
@@ -13,9 +15,9 @@ app.get("/",(req,res)=>{
 })
 app.use("/actors",actorRoutes);
 
-mongoose.connect('mongodb://127.0.0.1:27017/movieStars',{}).then(()=>console.log("DB connected"))
+mongoose.connect(MONGO,{}).then(()=>console.log("DB connected"))
 .catch(err =>console.error(err))
 
-app.listen(5001,()=>{
+app.listen(PORT,()=>{
   console.log("Making Api")
 })
